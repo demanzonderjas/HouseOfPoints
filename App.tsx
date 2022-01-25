@@ -1,22 +1,23 @@
-import { StatusBar } from 'expo-status-bar';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { HomeAction } from "./components/HomeAction";
+import { Text, View } from "./components/Themed";
+import Colors from "./constants/Colors";
+const App = () => {
+	return (
+		<View
+			style={{
+				flex: 1,
+				justifyContent: "center",
+				alignItems: "center",
+				alignContent: "center",
+				flexWrap: "nowrap",
+				flexDirection: "row",
+				backgroundColor: Colors.light.background,
+			}}
+		>
+			<HomeAction text="create" />
+			<HomeAction text="log_in" />
+		</View>
+	);
+};
 
-import useCachedResources from './hooks/useCachedResources';
-import useColorScheme from './hooks/useColorScheme';
-import Navigation from './navigation';
-
-export default function App() {
-  const isLoadingComplete = useCachedResources();
-  const colorScheme = useColorScheme();
-
-  if (!isLoadingComplete) {
-    return null;
-  } else {
-    return (
-      <SafeAreaProvider>
-        <Navigation colorScheme={colorScheme} />
-        <StatusBar />
-      </SafeAreaProvider>
-    );
-  }
-}
+export default App;
