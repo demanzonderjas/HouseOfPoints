@@ -10,7 +10,7 @@ export const HomeAction: React.FC<{ text: string }> = ({ text }) => {
 				position: "relative",
 				justifyContent: "center",
 				alignItems: "center",
-				margin: 10,
+				margin: 20,
 			}}
 		>
 			<View
