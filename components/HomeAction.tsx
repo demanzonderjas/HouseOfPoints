@@ -15,12 +15,12 @@ export const HomeAction: React.FC<{ text: string }> = ({ text }) => {
 		>
 			<View
 				style={{
-					width: 70,
-					height: 70,
+					width: 60,
+					height: 60,
 					backgroundColor: Colors.light.text,
 					position: "absolute",
 					borderRadius: 10,
-					transform: [{ rotateZ: "45deg" }],
+					transform: [{ rotateZ: "33deg" }],
 				}}
 			></View>
 			<Text

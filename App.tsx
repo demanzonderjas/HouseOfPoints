@@ -1,5 +1,8 @@
+import { Image } from "react-native";
 import { HomeAction } from "./components/HomeAction";
 import { Text, View } from "./components/Themed";
+import { translate } from "./utils/translations";
+
 import Colors from "./constants/Colors";
 const App = () => {
 	return (
@@ -9,13 +12,23 @@ const App = () => {
 				justifyContent: "center",
 				alignItems: "center",
 				alignContent: "center",
-				flexWrap: "nowrap",
-				flexDirection: "row",
 				backgroundColor: Colors.light.background,
 			}}
 		>
-			<HomeAction text="create" />
-			<HomeAction text="log_in" />
+			<Image source={require("./assets/images/logo.png")} />
+			<Text style={{ color: "white", fontSize: 36, marginBottom: 40 }}>
+				{translate("house_of_points")}
+			</Text>
+			<View
+				style={{
+					flexWrap: "nowrap",
+					flexDirection: "row",
+					backgroundColor: Colors.light.background,
+				}}
+			>
+				<HomeAction text="create" />
+				<HomeAction text="log_in" />
+			</View>
 		</View>
 	);
 };
