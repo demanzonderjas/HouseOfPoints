@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/native";
 import { Image } from "react-native";
 import { HomeAction } from "../components/HomeAction";
 import { BaseLayout } from "../components/layout/BaseLayout";
@@ -7,9 +8,10 @@ import { RootTabScreenProps } from "../types";
 import { getBaseScreenStyling } from "../utils/styling";
 import { translate } from "../utils/translations";
 
-export function HomeScreen({ navigation }: RootTabScreenProps<"Home">) {
+export function HomeScreen() {
+	const { navigate } = useNavigation();
 	return (
-		<BaseLayout>
+		<BaseLayout centered={true}>
 			<Image source={require("../assets/images/logo.png")} />
 			<Text style={{ color: "white", fontSize: 36, marginBottom: 40 }}>
 				{translate("house_of_points")}
@@ -23,11 +25,11 @@ export function HomeScreen({ navigation }: RootTabScreenProps<"Home">) {
 			>
 				<HomeAction
 					text="create"
-					handleClick={() => navigation.navigate("CreateAccount")}
+					handleClick={() => navigate("CreateAccount")}
 				/>
 				<HomeAction
 					text="log_in"
-					handleClick={() => navigation.navigate("LogIn")}
+					handleClick={() => navigate("LogIn")}
 				/>
 			</View>
 		</BaseLayout>

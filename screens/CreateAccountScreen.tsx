@@ -3,7 +3,7 @@ import { Text } from "../components/Themed";
 
 export function CreateAccountScreen() {
 	return (
-		<BaseLayout>
+		<BaseLayout header="create_account">
 			<Text>Create Account</Text>
 		</BaseLayout>
 	);
