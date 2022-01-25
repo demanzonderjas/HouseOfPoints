@@ -2,7 +2,10 @@ import Colors from "../constants/Colors";
 import { translate } from "../utils/translations";
 import { View, Text } from "./Themed";
 
-export const HomeAction: React.FC<{ text: string }> = ({ text }) => {
+export const HomeAction: React.FC<{ text: string; handleClick: any }> = ({
+	text,
+	handleClick,
+}) => {
 	return (
 		<View
 			style={{
@@ -24,6 +27,7 @@ export const HomeAction: React.FC<{ text: string }> = ({ text }) => {
 				}}
 			></View>
 			<Text
+				onPress={handleClick}
 				style={{
 					color: Colors.dark.text,
 					fontSize: 36,

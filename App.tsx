@@ -1,35 +1,29 @@
-import { Image } from "react-native";
-import { HomeAction } from "./components/HomeAction";
-import { Text, View } from "./components/Themed";
-import { translate } from "./utils/translations";
-
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Colors from "./constants/Colors";
+import { CreateAccountScreen } from "./screens/CreateAccountScreen";
+import { HomeScreen } from "./screens/HomeScreen";
+import { LogInScreen } from "./screens/LogInScreen";
+
+const Stack = createNativeStackNavigator();
+
 const App = () => {
 	return (
-		<View
-			style={{
-				flex: 1,
-				justifyContent: "center",
-				alignItems: "center",
-				alignContent: "center",
-				backgroundColor: Colors.light.background,
-			}}
-		>
-			<Image source={require("./assets/images/logo.png")} />
-			<Text style={{ color: "white", fontSize: 36, marginBottom: 40 }}>
-				{translate("house_of_points")}
-			</Text>
-			<View
-				style={{
-					flexWrap: "nowrap",
-					flexDirection: "row",
-					backgroundColor: Colors.light.background,
+		<NavigationContainer>
+			<Stack.Navigator
+				screenOptions={{
+					headerShown: false,
+					animation: "slide_from_right",
 				}}
 			>
-				<HomeAction text="create" />
-				<HomeAction text="log_in" />
-			</View>
-		</View>
+				<Stack.Screen name="Home" component={HomeScreen} />
+				<Stack.Screen
+					name="CreateAccount"
+					component={CreateAccountScreen}
+				/>
+				<Stack.Screen name="LogIn" component={LogInScreen} />
+			</Stack.Navigator>
+		</NavigationContainer>
 	);
 };
 
